@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>格式化輸入顯示</title>
-<<<<<<< HEAD
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
     crossorigin="anonymous"></script>
   <!-- <script>
@@ -18,41 +17,35 @@
       });
     }); 
   </script> -->
-=======
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="./public/css.css">
->>>>>>> 718bd00886cd7b00e99b2d7b9997e0974c67bd02
 </head>
 
 <body>
 
   <input type="file" name="files" id="files" value="" />
-<<<<<<< HEAD
-  <!-- <button id="btn" type="button">按我</button> -->
-  <div class="chat-messages" style="background-color: rgb(106, 183, 255);">
-    資料顯示區塊
-=======
   <button type="button" id="btn">修改顏色</button>
   <input type="text" placeholder="起點行數" id="text_num_1">
   <input type="text" placeholder="終點行數" id="text_num_2">
   <input type="color" id="color" value="#f6b73c">
   <button type="button" id="reset">重製顏色</button>(如要選單一行數，兩個行數得一樣)
-  
+
 
 
 
   <div class="chat-messages">資料顯示區塊
 
 
->>>>>>> 718bd00886cd7b00e99b2d7b9997e0974c67bd02
   </div>
 </body>
 
 <script type="text/javascript">
   let btn = document.getElementById("btn");
-  let text_num_1 = document.getElementById("text_num_1");//輸入兩個參數，
-  let text_num_2 = document.getElementById("text_num_2"); //用來綁定要選哪些區塊//(同一行的話兩個填一樣參數)
+  let text_num_1 = document.getElementById("text_num_1");
+  //輸入兩個參數，
+  let text_num_2 = document.getElementById("text_num_2");
+  //用來綁定要選哪些區塊//(同一行的話兩個填一樣參數)
   let color = document.getElementById("color");
   let reset = document.getElementById("reset");//
 
@@ -68,29 +61,17 @@
     reader.onload = function () {
       let originData = reader.result;
 
-
-
-
       //未處理的資料
       const sectionKeyWord = "*************************************************************************";
       const splitKeyWord = "\n";
       //切割用keyword
       let section = originData.split(sectionKeyWord);
-
-<<<<<<< HEAD
-      // console.log(sectionKeyWord);
-      // console.log(section);
-=======
       console.log("sectionKeyWord:" + sectionKeyWord);
       console.log('section:', section);
->>>>>>> 718bd00886cd7b00e99b2d7b9997e0974c67bd02
       // 先切三塊
-
+      let NewData = section.toString().split(splitKeyWord);
       //再切分句 **記得要轉回字串才能處理
-<<<<<<< HEAD
       // console.log(NewData[0]);
-=======
-      console.log(NewData[0]);
       // 一行一行拆開來列印 TODO
       for (i = 0; i < NewData.length; i++) {
         console.log('NewData' + i + ':', NewData[i]);
@@ -101,22 +82,21 @@
         }
       }
 
->>>>>>> 718bd00886cd7b00e99b2d7b9997e0974c67bd02
 
-      for (i = 0; i < section.length; i++) {
-        // console.log(section[i]); 
-        let NewData = section.toString().split(splitKeyWord);
-        NewData.toString().replace('〈', '●');
-        // NewData.replace('〕', '●')
-        console.log(NewData);
-        for (i = 0; i < NewData.length; i++) {
-          // console.log(NewData[i]);
-          //過濾空句子
-          if (NewData[i] != null) {
-            createForm(NewData[i]);
-          }
-        }
-      }
+      // for (i = 0; i < section.length; i++) {
+      //   // console.log(section[i]); 
+      //   let NewData = section.toString().split(splitKeyWord);
+      //   // NewData.toString().replace('〈', '●');
+      //   // NewData.replace('〕', '●')
+      //   console.log(NewData);
+      //   for (i = 0; i < NewData.length; i++) {
+      //     // console.log(NewData[i]);
+      //     //過濾空句子
+      //     if (NewData[i] != null) {
+      //       createForm(NewData[i]);
+      //     }
+      //   }
+      // }
 
       function createForm(x) {
 
@@ -128,7 +108,7 @@
         p.innerText = x;
         div.appendChild(p);
         document.querySelector('.chat-messages').appendChild(div);
-        
+
 
         btn.onclick = function () {//選擇區塊及改變顏色
           let row_1 = text_num_1.value;
@@ -140,13 +120,13 @@
               selected_rows.style.background = color.value;
             };
           };
-            reset.onclick = function () {//重製所有背景顏色
-              for(let y=0;y<=i;y++){
-              let All_color=document.querySelector(".message" + y);
-              All_color.style.background='#FFFFFF';
-              };
+          reset.onclick = function () {//重製所有背景顏色
+            for (let y = 0; y <= i; y++) {
+              let All_color = document.querySelector(".message" + y);
+              All_color.style.background = '#FFFFFF';
             };
-          
+          };
+
         };
 
 
