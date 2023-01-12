@@ -1,12 +1,14 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    
+
 }
-body{
+
+body {
     position: relative;
 }
-.chat-messages{
+
+.chat-messages {
     width: 40%;
     height: 500px;
     position: absolute;
@@ -15,9 +17,10 @@ body{
     left: 30%;
     top: 27px;
     border: 3px black solid;
-    
+
 }
-.title{
+
+.title {
     font-size: 20px;
     text-align: center;
     background-color: black;
@@ -26,7 +29,10 @@ body{
     right: 47%;
     top: 0;
 }
-.palette{
+
+.palette {
+    margin-left: 10px;
+    margin-right: 10px;
     left: 0;
     position: fixed;
     font-size: 40px;

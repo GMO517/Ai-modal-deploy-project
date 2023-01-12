@@ -21,7 +21,7 @@ No abnormal fluid collection in the abdomen  .
   S/P TURP 
  
  
-*************************************************************************
+***
 IMP: S4 liver tumor, nature? 
  
  
@@ -33,7 +33,7 @@ Staging after pathology
  
  
  
-*************************************************************************
+***
 ¡´Imaging Report Form for Hepatocellua Carcinoma (AJCC 7th Edition) 
  
 1.Tumor Number/Location:  
@@ -64,7 +64,7 @@ Staging after pathology
  
 3.Pathology: ¡³Not available ¡´Available (Pathology type:¡¼) 
  
- 
+
  
 -------------------Primary Tumor(T)-------------------------- 
  
