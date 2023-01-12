@@ -25,6 +25,7 @@
 
 <script type="text/javascript">
   let files = document.getElementById('files');
+  const colors = ["#ffa", "aaf", "afa"];
   files.onchange = function () {
     let file = files.files[0];
     let reader = new FileReader();
@@ -66,7 +67,7 @@
           } else {
             var color = '#afa';
           }
-          console.log(color);
+
           // while (i <= x) {
           //   let rows = document.querySelector(".meta");
           //   // console.log(rows);

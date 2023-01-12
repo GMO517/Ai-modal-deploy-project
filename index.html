@@ -33,13 +33,13 @@
       let originData = reader.result;
       //未處理的資料
       const sectionKeyWord = "***";
-      const splitKeyWord = "\n";
+      const splitKeyWord = "\n\r";
       //切割用keyword
       let section = originData.split(sectionKeyWord);
 
       // 先切三塊
       for (i = 0; i < section.length; i++) {
-        createSectionDiv();
+        createSectionDiv(section.length);
         let NewData = section[i].toString().split(splitKeyWord);
         let final = NewData.filter(function (value) {
           return value !== "\r";
@@ -51,6 +51,34 @@
       }
 
       // Section_changeColor();
+
+
+      function createSectionDiv(x) {
+        // if (x % 2 == 1) {
+        //   let color = '#ffa';
+        // } else {
+        //   let color = '#afa';
+        // }
+
+        //創造sectionDiv
+        const secDiv = document.createElement('div');
+        secDiv.classList.add('section');
+        // const p = document.createElement('p');
+        // p.classList.add('meta' + i);
+        // div.appendChild(p);
+        // secDiv.style.background = color;
+        document.querySelector('.chat-messages').appendChild(secDiv);
+      }
+      function createForm(x) {
+        //創造分句
+        const div = document.createElement('div');
+        div.classList.add('message');
+        // const p = document.createElement('p');
+        // p.classList.add('meta' + i);
+        div.innerText = x;
+        // div.appendChild(p);
+        document.querySelector('.section').appendChild(div);
+      }
 
       // function Section_changeColor() {
       //   changeColor_btn.onclick = function ChangeColor() {
@@ -74,25 +102,6 @@
       //   };
       // }
 
-      function createSectionDiv() {
-        //創造sectionDiv
-        const secDiv = document.createElement('div');
-        secDiv.classList.add('section');
-        // const p = document.createElement('p');
-        // p.classList.add('meta' + i);
-        // div.appendChild(p);
-        document.querySelector('.chat-messages').appendChild(secDiv);
-      }
-      function createForm(x) {
-        //創造分句
-        const div = document.createElement('div');
-        div.classList.add('message');
-        // const p = document.createElement('p');
-        // p.classList.add('meta' + i);
-        div.innerText = x;
-        // div.appendChild(p);
-        document.querySelector('.section').appendChild(div);
-      }
     }
   } 
 </script>
