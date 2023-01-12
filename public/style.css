@@ -30,6 +30,15 @@ body {
     top: 0;
 }
 
+
+/* 指定奇數偶數 */
+.section:nth-child(odd) {
+    background: pink;
+}
+.section:nth-child(even) {
+    background: yellow;
+}
+
 .palette {
     margin-left: 10px;
     margin-right: 10px;

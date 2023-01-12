@@ -1,21 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>格式化輸入顯示</title>
+
 </head>
+<link rel="stylesheet" href="./public/style.css">
 
 <body>
+  <input type="file" name="files" id="files" value="" />
+  <div class="palette">
+    <input type="color" name="" id="sec_1">
+    <input type="color" name="" id="sec_2">
+    <input type="color" name="" id="sec_3">
+    <button type="button" id="changeColor_btn">BTN</button>
+  </div>
+
+  <div class="chat-messages" style="background-color:white;">
+    <div class="title">資料顯示區塊</div>
+  </div>
 
 </body>
-<script>
-  let test = '〈 abc ● 〕';
-  console.log(test.replace('〈', '●'));
-  console.log(test.replace('〕', '●'));
 
+<script type="text/javascript">
+  let files = document.getElementById('files');
+  files.onchange = function () {
+    let file = files.files[0];
+    let reader = new FileReader();
+    reader.readAsText(file);
+    reader.onload = function () {
+      let originData = reader.result;
+      //未處理的資料
+      const sectionKeyWord = "***";
+      const splitKeyWord = "\n";
+      //切割用keyword
+      let section = originData.split(sectionKeyWord);
+
+      // 先切三塊
+      for (i = 0; i < section.length; i++) {
+        const secDiv = document.createElement('div');
+        secDiv.classList.add('section' + a)
+
+        let NewData = section[i].toString().split(splitKeyWord);
+        let final = NewData.filter(function (value) {
+          return value !== "\r";
+        })
+        // console.log(final.length);
+        for (j = 0; j < final.length; j++) {
+          sectionChangeColor(final.length);
+          createForm(final[j]);
+        }
+      }
+
+      // Section_changeColor();
+
+      function sectionChangeColor(x) {
+        changeColor_btn.onclick = function ChangeColor() {
+          var sec_1 = document.getElementById("sec_1").value;
+          var sec_2 = document.getElementById("sec_2").value;
+          var sec_3 = document.getElementById("sec_3").value;
+          let changeColor_btn = document.getElementById("changeColor_btn");
+          if (x % 2 == 1) {
+            var color = '#ffa';
+          } else {
+            var color = '#afa';
+          }
+          console.log(color);
+          // while (i <= x) {
+          //   let rows = document.querySelector(".meta");
+          //   // console.log(rows);
+          //   rows.style.background = color;
+          // }
+
+
+          // for (j = 0; j < Math.round(NewData.length / 3); j++) {
+          //   let rows = document.querySelector(".meta" + j);
+          //   rows.style.background = sec_1;
+          //   for (k = 29; k < NewData.length - Math.round(NewData.length / 3) - 3; k++) {
+          //     let rows2 = document.querySelector(".meta" + k);
+          //     rows2.style.background = sec_2;
+          //     for (f = 54; f < NewData.length - 1; f++) {
+          //       let rows3 = document.querySelector(".meta" + f);
+          //       rows3.style.background = sec_3;
+          //     };
+          //   };
+          // };
+
+        };
+      }
+      function createForm(x) {
+        //創造分句
+        const div = document.createElement('div');
+        div.classList.add('message');
+        const p = document.createElement('p');
+        p.classList.add('meta');
+        p.innerText = x;
+        div.appendChild(p);
+        document.querySelector('.chat-messages').appendChild(div);
+      }
+    }
+  } 
 </script>
 
 </html>

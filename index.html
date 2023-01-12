@@ -6,7 +6,7 @@
   <title>格式化輸入顯示</title>
 
 </head>
-<link rel="stylesheet" href="/public/style.css">
+<link rel="stylesheet" href="./public/style.css">
 
 <body>
   <input type="file" name="files" id="files" value="" />
@@ -39,6 +39,7 @@
 
       // 先切三塊
       for (i = 0; i < section.length; i++) {
+        createSectionDiv();
         let NewData = section[i].toString().split(splitKeyWord);
         let final = NewData.filter(function (value) {
           return value !== "\r";
@@ -49,22 +50,15 @@
         }
       }
 
-      //再切分句 **記得要轉回字串才能處理
-
-
       // Section_changeColor();
 
       // function Section_changeColor() {
-      //   for (i = 0; i < NewData.length; i++) {
-      //     if (NewData[i] != "") {
-      //       createForm(NewData[i]);
-      //     };
-      //   };
       //   changeColor_btn.onclick = function ChangeColor() {
       //     var sec_1 = document.getElementById("sec_1").value;
       //     var sec_2 = document.getElementById("sec_2").value;
       //     var sec_3 = document.getElementById("sec_3").value;
       //     let changeColor_btn = document.getElementById("changeColor_btn");
+
       //     for (j = 0; j < Math.round(NewData.length / 3); j++) {
       //       let rows = document.querySelector(".meta" + j);
       //       rows.style.background = sec_1;
@@ -80,15 +74,24 @@
       //   };
       // }
 
+      function createSectionDiv() {
+        //創造sectionDiv
+        const secDiv = document.createElement('div');
+        secDiv.classList.add('section');
+        // const p = document.createElement('p');
+        // p.classList.add('meta' + i);
+        // div.appendChild(p);
+        document.querySelector('.chat-messages').appendChild(secDiv);
+      }
       function createForm(x) {
         //創造分句
         const div = document.createElement('div');
         div.classList.add('message');
-        const p = document.createElement('p');
-        p.classList.add('meta' + i);
-        p.innerText = x;
-        div.appendChild(p);
-        document.querySelector('.chat-messages').appendChild(div);
+        // const p = document.createElement('p');
+        // p.classList.add('meta' + i);
+        div.innerText = x;
+        // div.appendChild(p);
+        document.querySelector('.section').appendChild(div);
       }
     }
   } 
