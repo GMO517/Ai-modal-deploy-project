@@ -41,7 +41,7 @@
       // 先切三塊
       for (i = 0; i < section.length; i++) {
         const secDiv = document.createElement('div');
-        secDiv.classList.add('section' + a)
+        secDiv.classList.add('section');
 
         let NewData = section[i].toString().split(splitKeyWord);
         let final = NewData.filter(function (value) {
@@ -68,25 +68,7 @@
             var color = '#afa';
           }
 
-          // while (i <= x) {
-          //   let rows = document.querySelector(".meta");
-          //   // console.log(rows);
-          //   rows.style.background = color;
-          // }
 
-
-          // for (j = 0; j < Math.round(NewData.length / 3); j++) {
-          //   let rows = document.querySelector(".meta" + j);
-          //   rows.style.background = sec_1;
-          //   for (k = 29; k < NewData.length - Math.round(NewData.length / 3) - 3; k++) {
-          //     let rows2 = document.querySelector(".meta" + k);
-          //     rows2.style.background = sec_2;
-          //     for (f = 54; f < NewData.length - 1; f++) {
-          //       let rows3 = document.querySelector(".meta" + f);
-          //       rows3.style.background = sec_3;
-          //     };
-          //   };
-          // };
 
         };
       }

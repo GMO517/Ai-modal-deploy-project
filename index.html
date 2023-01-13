@@ -9,23 +9,21 @@
 <link rel="stylesheet" href="./public/style.css">
 
 <body>
-    <input type="file" name="files" id="files" value="" />
-    <div class="palette">
-        <input type="color" name="" id="sec_1">
-        <input type="color" name="" id="sec_2">
-        <input type="color" name="" id="sec_3">
-        <button type="button" id="changeColor_btn">BTN</button>
+    <div class="fileSideBar">
+        <input type="file" name="files" id="files" value="" />
+        <button type="button" id="clear-btn" onclick="removeContent()">Clear</button>
+    </div>
+    <div class="container">
+        <div class="title">資料顯示Demo版</div>
+        <div class="chat-messages" style="background-color:white;">
+        </div>
     </div>
 
-    <div class="chat-messages" style="background-color:white;">
-        <div class="title">資料顯示Demo版</div>
-    </div>
 
 </body>
 
 <script type="text/javascript">
     let files = document.getElementById('files');
-    var coun = 0;
     files.onchange = function () {
         let file = files.files[0];
         let reader = new FileReader();
@@ -35,104 +33,42 @@
             let originData = reader.result;
             //未處理的資料
             const sectionKeyWord = "***";
-            const splitKeyWord = "\n\r";
+            const splitKeyWord = "\n";
             //切割用keyword
             let section = originData.split(sectionKeyWord);
-            // console.log(section)
             // 先切三塊
-            for (z = 0; z < 3; z++) {
-                createSectionDiv(z);
-            }
+
             for (i = 0; i < section.length; i++) {
-
-                let NewData = section[i].toString().split(sectionKeyWord);
-                // console.log('這是第'+i+":"+NewData)
-
-                // console.log(section.length)
+                createSectionDiv(i);
+                var NewData = section[i].toString().split(splitKeyWord);
                 let final = NewData.filter(function (value) {
-                    return value !== "\r"
+                    return value !== "";
                 })
-
-
-
                 for (j = 0; j < final.length; j++) {
-
-
+                    console.log('3');
                     createForm(final[j]);
-
-
                 }
-                // console.log(final[0])
-
             }
 
-
-
-            // Section_changeColor();
 
 
             function createSectionDiv(x) {
-                // if (x % 2 == 1) {
-                //   let color = '#ffa';
-                // } else {
-                //   let color = '#afa';
-                // }
-
-
                 //創造sectionDiv
                 const secDiv = document.createElement('div');
                 secDiv.classList.add('section' + x);
-
-
-                // const p = document.createElement('p');
-                // p.classList.add('meta' + i);
-                // div.appendChild(p);
-                // secDiv.style.background = color;
+                secDiv.classList.add('sectionColor');
                 document.querySelector('.chat-messages').appendChild(secDiv);
             }
-
-            function createForm(x) {
-
-
-                // console.log("長度:"+x.length)
+            function createForm(y) {
                 //創造分句
                 const div = document.createElement('div');
                 div.classList.add('message');
-                // const p = document.createElement('p');
-                // p.classList.add('meta' + i);
-                // console.log(x)
-
-                div.innerText = x;
-                // div.appendChild(p);
-
-
-
-
+                div.innerText = y;
                 document.querySelector('.section' + i).appendChild(div);
-
             }
-
-            // function Section_changeColor() {
-            //   changeColor_btn.onclick = function ChangeColor() {
-            //     var sec_1 = document.getElementById("sec_1").value;
-            //     var sec_2 = document.getElementById("sec_2").value;
-            //     var sec_3 = document.getElementById("sec_3").value;
-            //     let changeColor_btn = document.getElementById("changeColor_btn");
-
-            //     for (j = 0; j < Math.round(NewData.length / 3); j++) {
-            //       let rows = document.querySelector(".meta" + j);
-            //       rows.style.background = sec_1;
-            //       for (k = 29; k < NewData.length - Math.round(NewData.length / 3) - 3; k++) {
-            //         let rows2 = document.querySelector(".meta" + k);
-            //         rows2.style.background = sec_2;
-            //         for (f = 54; f < NewData.length - 1; f++) {
-            //           let rows3 = document.querySelector(".meta" + f);
-            //           rows3.style.background = sec_3;
-            //         };
-            //       };
-            //     };
-            //   };
-            // }
+            function removeContent() {
+                document.getElementsByClassName(sectionColor).remove();
+            }
 
         }
     } 

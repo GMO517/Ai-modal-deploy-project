@@ -32,10 +32,10 @@ body {
 
 
 /* 指定奇數偶數 */
-.section:nth-child(odd) {
+.sectionColor:nth-child(odd) {
     background: pink;
 }
-.section:nth-child(even) {
+.sectionColor:nth-child(even) {
     background: yellow;
 }
 
