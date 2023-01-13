@@ -42,11 +42,13 @@
                 createSectionDiv(i);
                 var NewData = section[i].toString().split(splitKeyWord);
                 let final = NewData.filter(function (value) {
-                    return value !== "";
+                    return value !== "\r";
                 })
                 for (j = 0; j < final.length; j++) {
-                    console.log('3');
-                    createForm(final[j]);
+                    if (final[j] != "") {
+                        createForm(final[j]);
+                    }
+
                 }
             }
 
