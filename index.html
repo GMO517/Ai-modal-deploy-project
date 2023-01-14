@@ -10,12 +10,20 @@
 
 <body>
     <div class="fileSideBar">
-        <input type="file" name="files" id="files" value="" />
-        <button type="button" id="clear-btn" onclick="removeContent()">Clear</button>
+        <div class="file_opt">
+            <input type="file" name="files" id="files" value="" />
+        </div>
     </div>
-    <div class="container">
-        <div class="title">資料顯示Demo版</div>
+    <div class="fileContainer">
+        <div class="header">
+            <div class="Clear_btn">
+                <button type="button" id="clear-btn" onclick="removeContent()">Clear</button>
+            </div>
+
+            <div class="filetitle">資料顯示Demo版</div>
+        </div>
         <div class="chat-messages" style="background-color:white;">
+
         </div>
     </div>
 

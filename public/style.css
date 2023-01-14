@@ -4,45 +4,98 @@
 
 }
 
+html {
+    height: 100%;
+}
+
 body {
+    display: flex;
+    height: 99.7%;
+}
+
+.header {
+    height: 70px;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color:#F0F0F0;
+    border-left: 2px black solid;
+}
+
+.fileSideBar {
+    height: inherit;
+    width: 300px;
+    vertical-align: bot;
+    background-color:#F0F0F0;
+
+
+}
+
+.file_opt {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    
+
+}
+
+#files {
+    width: 200px;
+    font-size: 14px;
+    font-weight: 700;  
+}
+
+.filetitle {
+    max-height: inherit;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 700;
+
+
+
+
+}
+
+.Clear_btn {
+    position: absolute;
+    display: flex;
+    top: 40%;
+    left: 40px;
+    
+}
+
+#clear-btn {
+    height: 24px;
+    width: 100px;
+    font-weight: 700;    
+}
+
+.fileContainer {
+    width: 100%;
+    height: 100%;
     position: relative;
 }
 
 .chat-messages {
-    width: 40%;
-    height: 500px;
-    position: absolute;
+    height: 549px;
     overflow: scroll;
     font-size: 16px;
-    left: 30%;
-    top: 27px;
-    border: 3px black solid;
+    border-top: 2px black solid;
+    border-left: 2px black solid;
 
 }
-
-.title {
-    font-size: 20px;
-    text-align: center;
-    background-color: black;
-    color: white;
-    position: fixed;
-    right: 47%;
-    top: 0;
-}
-
 
 /* 指定奇數偶數 */
 .sectionColor:nth-child(odd) {
     background: pink;
 }
+
 .sectionColor:nth-child(even) {
     background: yellow;
-}
-
-.palette {
-    margin-left: 10px;
-    margin-right: 10px;
-    left: 0;
-    position: fixed;
-    font-size: 40px;
 }
