@@ -17,7 +17,7 @@
     <div class="fileContainer">
         <div class="header">
             <div class="Clear_btn">
-                <button type="button" id="clear-btn" onclick="removeContent()">Clear</button>
+                <button type="button" id="clear-btn">Clear</button>
             </div>
 
             <div class="filetitle">資料顯示Demo版</div>
@@ -33,6 +33,7 @@
 <script type="text/javascript">
     let files = document.getElementById('files');
     files.onchange = function () {
+
         let file = files.files[0];
         let reader = new FileReader();
         reader.readAsText(file);
@@ -60,6 +61,29 @@
                 }
             }
 
+            
+            let clearFile_btn = document.querySelector("#clear-btn");
+
+            clearFile_btn.addEventListener("click", function () {//清除資料
+                let parent_node = document.querySelector(".chat-messages")
+                let child_node = parent_node.lastElementChild;
+                files.value = ''; 
+                if(child_node){
+
+                    while(child_node){
+                        parent_node.removeChild(child_node);
+                        child_node = parent_node.lastElementChild;                       
+                    }
+                   
+                }
+
+
+                
+            })
+
+
+
+
 
 
             function createSectionDiv(x) {
@@ -76,12 +100,12 @@
                 div.innerText = y;
                 document.querySelector('.section' + i).appendChild(div);
             }
-            function removeContent() {
-                document.getElementsByClassName(sectionColor).remove();
-            }
+
 
         }
-    } 
+
+    }
+
 </script>
 
 </html>
