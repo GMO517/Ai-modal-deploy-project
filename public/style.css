@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    background-color:#F0F0F0;
+    background-color: #F0F0F0;
     border-left: 2px black solid;
 }
 
@@ -27,24 +27,24 @@ body {
     height: inherit;
     width: 300px;
     vertical-align: bot;
-    background-color:#F0F0F0;
+    background-color: #F0F0F0;
 
 
 }
 
 .file_opt {
-    height: 70px;
-    display: flex;
+    height: 120px;
+    display: inline-block;
     align-items: center;
     justify-content: center;
-    
+
 
 }
 
 #files {
     width: 200px;
     font-size: 14px;
-    font-weight: 700;  
+    font-weight: 700;
 }
 
 .filetitle {
@@ -66,13 +66,13 @@ body {
     display: flex;
     top: 40%;
     left: 40px;
-    
+
 }
 
 #clear-btn {
     height: 24px;
     width: 100px;
-    font-weight: 700;    
+    font-weight: 700;
 }
 
 .fileContainer {
