@@ -55,10 +55,6 @@ body {
     justify-content: center;
     font-size: 25px;
     font-weight: 700;
-
-
-
-
 }
 
 .Clear_btn {
@@ -66,7 +62,6 @@ body {
     display: flex;
     top: 40%;
     left: 40px;
-
 }
 
 #clear-btn {

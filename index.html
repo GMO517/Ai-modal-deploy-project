@@ -21,7 +21,6 @@
             <div class="Clear_btn">
                 <button type="button" id="clear-btn">資料清除</button>
             </div>
-
             <div class="filetitle">格式化輸出系統</div>
         </div>
         <div class="chat-messages" style="background-color:white;">
@@ -34,6 +33,7 @@
 
 <script type="text/javascript">
     let files = document.getElementById('files');
+    const clearFile_btn = document.querySelector("#clear-btn");
     files.onchange = function () {
 
         let file = files.files[0];
@@ -44,14 +44,16 @@
             let originData = reader.result;
             //未處理的資料
             const sectionKeyWord = "***";
-            const splitKeyWord = "\n";
+            const splitKeyWord = "\r\n";
             //切割用keyword 需要調整從這邊弄 
             let section = originData.split(sectionKeyWord);
+            // console.log(section);
             // 先切三塊
 
             for (i = 0; i < section.length; i++) {
                 createSectionDiv(i);
                 var NewData = section[i].toString().split(splitKeyWord);
+                console.log(NewData);
                 let final = NewData.filter(function (value) {
                     return value !== "\r";
                 })
@@ -59,28 +61,20 @@
                     if (final[j] != "") {
                         createForm(final[j]);
                     }
-
                 }
             }
 
-
-            let clearFile_btn = document.querySelector("#clear-btn");
-
-            clearFile_btn.addEventListener("click", function () {//清除資料
+            clearFile_btn.addEventListener("click", function () {
+                //清除資料
                 let parent_node = document.querySelector(".chat-messages")
                 let child_node = parent_node.lastElementChild;
                 files.value = '';
                 if (child_node) {
-
                     while (child_node) {
                         parent_node.removeChild(child_node);
                         child_node = parent_node.lastElementChild;
                     }
-
                 }
-
-
-
             })
 
             function createSectionDiv(x) {
@@ -97,10 +91,7 @@
                 div.innerText = y;
                 document.querySelector('.section' + i).appendChild(div);
             }
-
-
         }
-
     }
 
 </script>
